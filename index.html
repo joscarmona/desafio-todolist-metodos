@@ -1,0 +1,67 @@
+<!-- Desafío 5 - Todo list (métodos de arreglos)-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafío 5 - Todo list (métodos de arreglos)</title>
+
+    <!-- CSS file -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <!-- Tipografía a utilizar desde la página Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    
+    <!-- Agregar iconos desde Fontawesome -->
+    <script src="https://kit.fontawesome.com/f1954fad1e.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+    <main class="flexContainer">
+        <!-- CONTROL DE TAREAS -->
+        <section class="controlTareaFlexContainer">
+
+            <!-- ENCABEZADO -->
+            <h1 class="encabezadoH1">Todo List</h1>
+
+            <!-- INGRESAR Y AGREGAR TAREA -->
+            <article class="inAddTareaFlexContainer">
+                <span>Nueva tarea</span>
+                <div class="inAddContainer">
+                    <!-- INPUT (para ingresar el nombre de la tarea) -->
+                    <input type="text" id="ingresarTareaInput">
+
+                    <!-- BUTTON (para agregar la tarea a un arreglo) -->
+                    <button id="agregarTareaBtn">Agregar</button>
+                </div>
+            </article>
+
+            <!-- MOSTRAR CANTIDAD TOTAL DE TAREAS, CANTIDAD DE TAREAS REALIZADAS Y LISTA DE TAREAS -->
+            <article class="spanUlFlexContainer">
+                <!-- TOTAL TAREAS Y TAREAS REALIZADS -->
+                <div class="tareasToTalRealizadas">
+                    <!-- Indica la cantidad de tareas en total-->
+                    <span id="totalTareas"></span>
+                    <!-- Indica la cantidad de tareas realizadas -->
+                    <span id="tareasRealizadas">Realizadas: </span>                       
+                </div>
+                <!-- LISTA DE TAREAS -->
+                <div class="listaDeTareas">
+                    <span>Tareas: </span>
+                    <!-- UL (mostrar el listado de tareas) -->
+                    <ul id="listaDeTareas"></ul>
+                </div>
+                
+            </article>
+
+        </section>
+    </main>
+
+    <!-- Script file -->
+    <script src="./assets/js/script.js"></script>
+    
+</body>
+</html>

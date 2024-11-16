@@ -1,0 +1,99 @@
+/* RESET */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body{
+    font-family: "Roboto", system-ui;
+    font-style: normal;
+    font-size: 0.8em;
+    background-color: rgb(27, 25, 25);
+    color: #f1e9b8;
+}
+
+/* MAIN */
+.flexContainer{
+    display: flex;
+    height: 100vh;
+    /* border: 2px solid rebeccapurple; */
+    justify-content: center;
+    align-items: center;
+
+}
+/* ************************************************************************ */
+
+/* SECTION */
+.controlTareaFlexContainer{
+    border: 2px solid #645CF2;
+    height: min-content;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
+/* H1 */
+.encabezadoH1{
+    margin: 1em 0 0 1em;
+    border-bottom: 1px solid #f1e9b8;
+    padding-bottom: 0.4em;
+    width: 92%;
+}
+/* ************************************************************************ */
+
+/* INGRESAR Y AGREGAR TAREA CONTAINER */
+.inAddTareaFlexContainer{
+    display: flex;
+    flex-direction: column;
+    margin: 0 2em 0 1.5em;
+    gap: 0.4em;
+}
+/* Contiene al INPUT y al BUTTON */
+.inAddContainer{
+    display: flex;
+    gap: 0.5em;
+}
+
+/* INPUT */
+#ingresarTareaInput{
+    width: 85%;
+}
+
+/* BUTTON */
+#agregarTareaBtn{
+    height: 2.5em;
+    width: 6em;
+    background-color: #5b83f1;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #252314;
+}
+
+#agregarTareaBtn:hover{
+    background-color: #ADBFF2;
+}
+/* ************************************************************************ */
+
+/* MOSTRAR CANTIDAD TOTAL DE TAREAS, CANTIDAD DE TAREAS REALIZADAS Y LISTA DE TAREAS - CONTAINER*/
+.spanUlFlexContainer{
+    display: flex;
+    margin: 0 2em 1em 1.5em;
+}
+
+/* TOTAL TAREAS Y TAREAS REALIZADS (DIV) */
+.tareasToTalRealizadas{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;    
+}
+
+/* LISTA DE TAREAS */
+/* .listaDeTareas{
+
+} */
+/* ************************************************************************ */
