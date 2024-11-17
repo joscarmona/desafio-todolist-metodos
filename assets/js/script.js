@@ -49,7 +49,7 @@ function renderArray(array){
                 <td class="tdTarea" style="text-align: center;">
                     <input type="checkbox" id="chequearTarea-${element.id}" onclick="
                         checkearTareaRealizada(${element.id})
-                        document.querySelector('#tareaRealizada-${element.id}').classList.toggle('myStyle')
+                                                
                     " ${element.check}>
                 </td>
                 <!-- OPCIÓN DE BORRAR TAREA -->
@@ -58,24 +58,29 @@ function renderArray(array){
                 </td>
             </tr>
         `
+        console.log(element.id)
     })
     // Se actualiza la lista de tareas en el HTML
     listaDeTareasTbody.innerHTML = dynamicContentTareasTbody
+
+    estiloDescripcionTarea()
 
     // Se actualiza la cantidad total de tareas
     cantidadDeTareas.innerHTML = `Total: ${tareas.length}`
 
     // Se actualiza la cantidad de tareas realizadas
     tareasRealizadasSpan.innerHTML = `Realizadas: ${cantidadTareasRealizadas()}`
+
 }
 
 /* *** Función para borrar un elemento del arreglo a partir del id *** */
 function borrar(id){
     // Obtengo el índice del elemento del arreglo que se desea eliminar a partir de el id del elemento
     const index = tareas.findIndex((element) => element.id === id)
-    console.log(index)
+    console.log('holaaaaa ' + index + ', '  + id)
     tareas.splice(index, 1)
     /* Actualizar la lista de tareas en el HTML */
+    
     renderArray(tareas)
     console.table(tareas)
 }
@@ -92,6 +97,7 @@ function checkearTareaRealizada(id){
         tareas[index].realizada = true
         tareas[index].check = 'checked'
         console.table(tareas[index])
+        document.querySelector('#tareaRealizada-' + id).classList.add('myStyle')
         
         // Se actualiza la cantidad de tareas realizadas
         tareasRealizadasSpan.innerHTML = `Realizadas: ${cantidadTareasRealizadas()}`
@@ -100,6 +106,7 @@ function checkearTareaRealizada(id){
         tareas[index].realizada = false
         tareas[index].check = ""
         console.table(tareas[index])
+        document.querySelector('#tareaRealizada-' + id).classList.remove('myStyle')
 
         // Se actualiza la cantidad de tareas realizadas
         tareasRealizadasSpan.innerHTML = `Realizadas: ${cantidadTareasRealizadas()}`
@@ -114,10 +121,27 @@ function cantidadTareasRealizadas(){
     return tareasRealizadas.length
 }
 
-
-
-
-
+/* Función que le da estilo a la descripción de la tarea cuando esta se encuentra realizada (completada) */
+function estiloDescripcionTarea(){
+    tareas.forEach((element) =>{
+        // const index = tareas.findIndex((element) => element.id === id)
+        if(element.check === 'checked'){
+            document.querySelector('#tareaRealizada-' + element.id).classList.add('myStyle')
+            console.log('Chequeando si la tarea se ha realizado o no')
+            console.table(element)
+        }else{
+            document.querySelector('#tareaRealizada-' + element.id).classList.remove('myStyle')
+        }
+    })
+    
+    //Obtengo el índice del elemento del arreglo que se desea chequear estado de la tarea, si se encuentra completada o no
+    // const index = tareas.findIndex((element) => element.id === id)
+    // if(tareas[index].check === 'checked'){
+    //     document.querySelector('#tareaRealizada-' + id).classList.add('myStyle')
+    // }else{
+    //     document.querySelector('#tareaRealizada-' + id).classList.remove('myStyle')
+    // }
+}
 /* ********************************************************************** */
 
 /* ********************************************************************** */
