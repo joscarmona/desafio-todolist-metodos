@@ -56,7 +56,7 @@
                         <!-- CONTENIDO DE LA CABECERA -->
                         <th><span class="theadListaDeTareas">ID</span></th>
                         <th><span class="theadListaDeTareas">Tarea</span></th>
-                        <th id="tdThRealizada"><span class="theadListaDeTareas">Realizada</span></th>
+                        <th style="text-align: center;"><span class="theadListaDeTareas">Realizada</span></th>
                     </thead>
                     <!-- BODY DE LA TABLA -->
                     <tbody id="tbodyListaDeTareas"></tbody>
@@ -67,7 +67,11 @@
     </main>
 
     <!-- Script file -->
-    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/script.js"></script> 
+    
+    <input type="checkbox" class="inputCheckbox" onclick="
+        console.log(document.querySelector('.inputCheckbox').checked)
+    ">
     
 </body>
 </html>
