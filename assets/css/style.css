@@ -10,7 +10,7 @@ body{
     font-family: "Roboto", system-ui;
     font-style: normal;
     font-size: 0.8em;
-    background-color: rgb(27, 25, 25);
+    background-color: #1b1919;
     color: #f1e9b8;
 }
 
@@ -29,7 +29,7 @@ body{
 .controlTareaFlexContainer{
     border: 2px solid #645CF2;
     height: min-content;
-    width: 50%;
+    width: 60%;
     display: flex;
     flex-direction: column;
     gap: 1.5em;
@@ -40,7 +40,7 @@ body{
     margin: 1em 0 0 1em;
     border-bottom: 1px solid #f1e9b8;
     padding-bottom: 0.4em;
-    width: 92%;
+    width: 91%;
 }
 /* ************************************************************************ */
 
@@ -60,6 +60,7 @@ body{
 /* INPUT */
 #ingresarTareaInput{
     width: 85%;
+    border-radius: 5px;
 }
 
 /* BUTTON */
@@ -79,7 +80,7 @@ body{
 /* ************************************************************************ */
 
 /* MOSTRAR CANTIDAD TOTAL DE TAREAS, CANTIDAD DE TAREAS REALIZADAS Y LISTA DE TAREAS - CONTAINER*/
-.spanUlFlexContainer{
+.spanTableFlexContainer{
     display: flex;
     margin: 0 2em 1em 1.5em;
 }
@@ -92,8 +93,47 @@ body{
     gap: 0.5em;    
 }
 
-/* LISTA DE TAREAS */
-/* .listaDeTareas{
+/* TABLE (Muestra la lista de tareas) */
+.tableListaDeTareas{
+    /* border: solid red; */
+    width: 100%;
+    text-align: justify;
+}
 
-} */
+/* THEAD (Lista de tareas) */
+.theadListaDeTareas{
+    /* border: solid red; */
+    background-color: #ADBFF2;
+    color: #252314;
+    padding: 0.2em;
+}
+
+/* TD (Tareas añadidas desde JS) */
+.tdTarea{
+    padding: 0.2em;
+}
+
+/* Ajuste de la columna del ID */
+#tdId{
+    width: 20%;
+}
+
+/* BUTTON (Borrar tarea) */
+.borrarTareaButton{
+    cursor: pointer;
+    padding: 0.2em;
+    background-color: #645CF2;
+    border: none;
+    border-radius: 3px;
+    color: #252314;
+}
+
+.borrarTareaButton:hover{
+    background-color: #ADBFF2;
+}
+
+/* Ajuste del contenido del TH y TD de la columna Realizadas */
+#tdThRealizada{
+    text-align: center;
+}
 /* ************************************************************************ */

@@ -1,64 +1,65 @@
-/* Selección de los elementos web que se utiliza en JS */
+/* ********************************************************************** */
+/* ********* Selección de los elementos web que se utiliza en JS ******** */
+/* ********************************************************************** */
 // INPUT (ingresar el nombre de la tarea)
-const nombreDeTareaInput = document.querySelector("#ingresarTareaInput")
+const descripcionDeTareaInput = document.querySelector("#ingresarTareaInput")
 
 // BUTTON (agregar la tarea a un arreglo)
 const agregarTareaBtn = document.querySelector("#agregarTareaBtn")
 
 // UL (mostrar la lista de tareas)
-const listaDeTareasUl = document.querySelector("#listaDeTareas")
+// const listaDeTareasUl = document.querySelector("#listaDeTareas")
+// TBODY (mostrar lista de tareas)
+const listaDeTareasTbody = document.querySelector("#tbodyListaDeTareas")
 
 // SPAN (mostrar la cantidad total de tareas)
 const cantidadDeTareas = document.querySelector("#totalTareas")
 
 // SPAN (mostrar la cantidad de tareas realizadas)
 const tareasRealizadasSpan = document.querySelector("#tareasRealizadas")
+/* ********************************************************************** */
 
+/* ********************************************************************** */
+/* ****************** Declaración de variables, arreglos **************** */
+/* ********************************************************************** */
 /* Arreglo vacío que se utilizará para ir guardando las tareas */
-const tareas = []
+const tareas = [
+    {id: 1, descripcion: "Tarea 1", realizada: false},
+    {id: 2, descripcion: "Tarea 2", realizada: false},
+    {id: 3, descripcion: "Tarea 3", realizada: false}
+]
 
 /* Arreglo vacío que se utilizará para ir guardando las tareas */
 const tareasRealizadas = []
+/* ********************************************************************** */
 
-// Se actualiza la cantidad total de tareas
-cantidadDeTareas.innerHTML = `Total: ${tareas.length}`
-
-// Se actualiza la cantidad de tareas realizadas
-tareasRealizadasSpan.innerHTML = `Realizadas: ${tareasRealizadas.length}`
-
+/* ********************************************************************** */
+/* *********************** Declaración de funciones ********************* */
+/* ********************************************************************** */
 /* *** Función para actualizar la lista de tareas en el HTML *** */
-function renderTareas(){
+function renderArray(array){
     // Variable que se utiliza para guardar la información a agregar en el HTML de forma estructurada
-    let dynamicContentTareasUl = ""
-    for(let tarea of tareas){
-        dynamicContentTareasUl += `
-            <li>
-                ${tarea.nombre}
-                <button onclick="borrar(${tarea.id})">Eliminar</button>
-            </li>
+    let dynamicContentTareasTbody = ""
+    array.forEach((element) =>{
+        // Se guarda el contenido cada objeto del arreglo tareas en la variable dynamicContentTareasTbody
+        dynamicContentTareasTbody += `
+            <tr>
+                <td class="tdTarea" id="tdId">${element.id}</td>
+                <td class="tdTarea">${element.descripcion}</td>
+                <td class="tdTarea" id="tdThRealizada">${element.realizada}</td>
+                <!-- OPCIÓN DE BORRAR TAREA -->
+                <td class="tdTarea">
+                    <button class="borrarTareaButton"onclick="borrar(${element.id})">Eliminar</button>
+                </td>
+            </tr>
         `
-    }
+    })
     // Se actualiza la lista de tareas en el HTML
-    listaDeTareasUl.innerHTML = dynamicContentTareasUl
+    listaDeTareasTbody.innerHTML = dynamicContentTareasTbody
 
-    // Se actualiza la cantidad de tareas
+    // Se actualiza la cantidad total de tareas
     cantidadDeTareas.innerHTML = `Total: ${tareas.length}`
 }
-
-/* Evento del botón, al ser presionado se guardará en el arreglo tareas[] la tarea ingresada a través del input y posteriormente se actualizará la lista de tareas en el HTML */
-agregarTareaBtn.addEventListener("click", () =>{
-    /* Agregar la tarea ingresada al arreglo */
-    // Se guarda en una variable el valor ingresado
-    const nombreTarea = nombreDeTareaInput.value
-    // Se agrega el nombre de la tarea ingresada en el arreglo de tareas
-    tareas.push({id: Date.now(), nombre: nombreTarea})
-    // Se limpia el input
-    nombreDeTareaInput.value = ""
-
-    /* Actualizar la lista de tareas en el HTML */
-    renderTareas()
-    console.table(tareas)
-})
 
 /* *** Función para borrar un elemento del arreglo a partir del id *** */
 function borrar(id){
@@ -66,6 +67,44 @@ function borrar(id){
     const index = tareas.findIndex((element) => element.id === id)
     tareas.splice(index, 1)
     /* Actualizar la lista de tareas en el HTML */
-    renderTareas()
+    renderArray(tareas)
     console.table(tareas)
 }
+/* ********************************************************************** */
+
+/* ********************************************************************** */
+/* * Actualización del total de tareas y de las realizadas, mostrar lista */
+/* ********************************************************************** */
+// Se actualiza la cantidad total de tareas
+cantidadDeTareas.innerHTML = `Total: ${tareas.length}`
+
+// Se actualiza la cantidad de tareas realizadas
+tareasRealizadasSpan.innerHTML = `Realizadas: ${tareasRealizadas.length}`
+
+// Se actualiza la lista de tareas en HTML
+renderArray(tareas)
+
+/* ********************************************************************** */
+/* ********************** Agregar Tarea a la lista ********************** */
+/* ********************************************************************** */
+/* Evento del botón, al ser presionado se guardará en el arreglo tareas[] la tarea ingresada a través del input y posteriormente se actualizará la lista de tareas en el HTML */
+agregarTareaBtn.addEventListener("click", () =>{
+    /* Agregar la tarea ingresada al arreglo */
+    // Se guarda en una variable el valor ingresado
+    const descripcionTarea = descripcionDeTareaInput.value
+
+    // Se chequea si se ha ingresado algún valor en el INPUT
+    if(descripcionTarea != ""){
+        // Se agrega el nombre de la tarea ingresada en el arreglo de tareas
+        tareas.push({id: Date.now(), descripcion: descripcionTarea, realizada: false})
+        // Se limpia el input
+        descripcionDeTareaInput.value = ""
+    }else{
+        alert("Por favor ingrese la nueva tarea")
+    }
+
+    /* Actualizar la lista de tareas en el HTML */
+        // Dentro de la función renderArray(array) se encuentra la opción de borrar cada tarea
+        renderArray(tareas)
+        console.table(tareas)
+})

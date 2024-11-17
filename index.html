@@ -40,7 +40,7 @@
             </article>
 
             <!-- MOSTRAR CANTIDAD TOTAL DE TAREAS, CANTIDAD DE TAREAS REALIZADAS Y LISTA DE TAREAS -->
-            <article class="spanUlFlexContainer">
+            <article class="spanTableFlexContainer">
                 <!-- TOTAL TAREAS Y TAREAS REALIZADS -->
                 <div class="tareasToTalRealizadas">
                     <!-- Indica la cantidad de tareas en total-->
@@ -49,12 +49,18 @@
                     <span id="tareasRealizadas">Realizadas: </span>                       
                 </div>
                 <!-- LISTA DE TAREAS -->
-                <div class="listaDeTareas">
-                    <span>Tareas: </span>
-                    <!-- UL (mostrar el listado de tareas) -->
-                    <ul id="listaDeTareas"></ul>
-                </div>
-                
+                <!-- TABLE -->
+                <table class="tableListaDeTareas">
+                    <!-- CABECERA DE LA TABLA -->
+                    <thead>
+                        <!-- CONTENIDO DE LA CABECERA -->
+                        <th><span class="theadListaDeTareas">ID</span></th>
+                        <th><span class="theadListaDeTareas">Tarea</span></th>
+                        <th id="tdThRealizada"><span class="theadListaDeTareas">Realizada</span></th>
+                    </thead>
+                    <!-- BODY DE LA TABLA -->
+                    <tbody id="tbodyListaDeTareas"></tbody>
+                </table>                
             </article>
 
         </section>
