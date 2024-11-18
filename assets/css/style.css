@@ -11,14 +11,14 @@ body{
     font-style: normal;
     font-size: 0.8em;
     background-color: #1b1919;
-    color: #f1e9b8;
+    color: #252314;
 }
 
 /* MAIN */
 .flexContainer{
     display: flex;
     height: 100vh;
-    /* border: 2px solid rebeccapurple; */
+    /* border: 2px solid red; */
     justify-content: center;
     align-items: center;
 
@@ -27,20 +27,25 @@ body{
 
 /* SECTION */
 .controlTareaFlexContainer{
-    border: 2px solid #645CF2;
+    /* border: 2px solid burlywood; */
+    background-color: #9282F5;
     height: min-content;
-    width: 60%;
+    width: 70%;
     display: flex;
     flex-direction: column;
     gap: 1.5em;
+    border-radius: 10px;
+    border-style: outset;
+    border-width: 3px;
+    border-color: #aea2fa;
 }
 
 /* H1 */
 .encabezadoH1{
     margin: 1em 0 0 1em;
-    border-bottom: 1px solid #f1e9b8;
+    border-bottom: 1px solid #252314;
     padding-bottom: 0.4em;
-    width: 91%;
+    width: 95%;
 }
 /* ************************************************************************ */
 
@@ -67,7 +72,7 @@ body{
 #agregarTareaBtn{
     height: 2.5em;
     width: 6em;
-    background-color: #5b83f1;
+    background-color: #82BCF5;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -87,7 +92,7 @@ body{
 
 /* TOTAL TAREAS Y TAREAS REALIZADS (DIV) */
 .tareasToTalRealizadas{
-    width: 50%;
+    width: 40%;
     display: flex;
     flex-direction: column;
     gap: 0.5em;    
@@ -96,7 +101,7 @@ body{
 /* TABLE (Muestra la lista de tareas) */
 .tableListaDeTareas{
     /* border: solid red; */
-    width: 100%;
+    width: 60%;
     text-align: justify;
 }
 
@@ -121,8 +126,9 @@ body{
 /* BUTTON (Borrar tarea) */
 .borrarTareaButton{
     cursor: pointer;
-    padding: 0.2em;
-    background-color: #645CF2;
+    padding: 0.3em;
+    /* background-color: #645CF2; */
+    background-color: #d0caf3;
     border: none;
     border-radius: 3px;
     color: #252314;
@@ -137,8 +143,9 @@ body{
     text-align: center;
 }
 
-/* Estilo que se le da a la descripción de una tarea cuando se encuentra realizada */
-.myStyle{
-    color: #645CF2;
+/* Estilo que se le da al texto de la descripción de una tarea cuando se encuentra realizada */
+.styleTareaRealizada{
+    color: #9e127b;
+    font-weight: 500;
 }
 /* ************************************************************************ */
